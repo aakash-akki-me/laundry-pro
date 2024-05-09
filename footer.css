@@ -280,36 +280,3 @@ footer{
  }  
 
 
- /* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait)  
- {  
-    footer{
-       
-        overflow: hidden;
-        height: 75% ;
-       }
-       .row2{
-        flex-wrap: wrap;
-       }
-         .box{
-            p,h2{
-                
-                gap:1rem
-            }
-         }
-         #icon{
-            height: 35%;
-         }
-         
-        .heading{ 
-             width: 100%;
-              justify-content: flex-start;
-        }
-         
-         
-        
-        .boxs{
-            padding-bottom: 1.5rem; 
-            padding-left: 0;
-        }
-
- } */
