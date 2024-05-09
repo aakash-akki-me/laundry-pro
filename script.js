@@ -46,6 +46,7 @@ function servisesDisplay () {
 }
 servisesDisplay()
 
+// button contant 
 const addToCartButton = `Add to cart     
 <span class="material-symbols-outlined">
   add_circle
@@ -64,9 +65,14 @@ servisesDiv.addEventListener('click', (e) => {
             e.target.classList.toggle("btn-add")
             e.target.innerHTML = removeToCartButton;
             cart.push(servises[Number(e.target.id)])
+            console.log(cart);
             addToCart()
         }else if(e.target.innerText.toLowerCase().includes("remove")){
-            cart.pop(servises[Number(e.target.id)])
+            let newCart = []
+            for(let i = 0; i < cart.length; i++){
+                if(cart[i] !== servises[Number(e.target.id)]) newCart.push(cart[i])
+            };
+            cart = newCart
             e.target.innerHTML = addToCartButton;
             e.target.classList.toggle("btn-remove")
             e.target.classList.toggle("btn-add")
@@ -74,22 +80,26 @@ servisesDiv.addEventListener('click', (e) => {
         }
     }
 })
-
+let itemsForCart;
 //  to show the added items in the cart and set the total amount in total section
 function addToCart() {
     cartItems.innerHTML = "";
     let totalAmount = 0;
+    itemsForCart = ""
     cart.forEach((elem, index)=> {
         totalAmount += elem.price;
-        cartItems.innerHTML += `<div id="${index}" class="tabel-title">
+        itemsForCart += `<div id="${index}" class="tabel-title">
         <span class="tb-dt">${index + 1}</span>
         <span class="tb-dt"> ${elem.name}</span>
         <span class="tb-dt right"> ${elem.price}.00 $</span>
       </div>`
     })
+    cartItems.innerHTML = itemsForCart;
     document.querySelector('.total-price').innerHTML = totalAmount + " $";
 }
 
+
+// submit the order and then reset the page
 const buyBtn = document.querySelector('#add-Item')
 const statusDiv = document.querySelector('.status')
 const fullname = document.querySelector('#fullName')
@@ -102,14 +112,17 @@ buyBtn.addEventListener('click', () => {
         statusDiv.style.color = "red";
     }else if(fullname.value === "" || email.value === "" || phone.value === ""){
         statusDiv.innerText = "Please fill the details First!";
+        statusDiv.style.BackgroundColor = "rgba(86 98 249 0.6)";
         statusDiv.style.color = "red";
     }else{
-        statusDiv.innerText = "Your order create sucessfully Email sand to you!";
+        statusDiv.innerText = "Thank you For Booking the Service We will get back to you soon!";
         statusDiv.style.color = "rgb(86 98 249)";
+        statusDiv.style.BackgroundColor = "rgba(86 98 249 0.6)";
         reset()
     }
 })
 
+// reset function to change the ui to make it default 
 function reset(){
     cart = [];
     servisesDisplay();
@@ -118,3 +131,4 @@ function reset(){
     phone.value = "";
     addToCart()
 }
+
