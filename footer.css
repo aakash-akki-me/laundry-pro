@@ -173,7 +173,7 @@ footer{
 
 
 
-@media screen and (max-width:380px) {
+@media screen and (max-width:620px) {
     
    footer{
     position: relative;
@@ -226,7 +226,7 @@ footer{
 }
 
 
-@media screen and (max-width:431px) {
+@media screen and (max-width:930px) {
     
     footer{
      position: relative;
