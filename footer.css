@@ -152,7 +152,9 @@ footer{
         padding-top: 5%;
         font-size: 1rem;
     }
-    li{
+    li a{
+        text-decoration: none;
+        color: gray;
         padding-bottom: 2%;
     }
     p{
@@ -165,6 +167,14 @@ footer{
         padding-right: 5%;
         
     }
+}
+.boxs li a:hover{
+    color: black;
+    font-size: 105%;
+}
+.boxs i:hover{
+    transform: scale(1.5);
+    transition: 0.3s;
 }
 .footer-logo{
     display: block;
