@@ -132,3 +132,8 @@ function reset(){
     addToCart()
 }
 
+document.getElementById('menu-btn').addEventListener('click', ()=>{
+    const nav_menu = document.querySelector('.nav-links');
+    nav_menu.classList.toggle('show')
+    
+})  

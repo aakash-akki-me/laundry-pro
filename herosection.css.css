@@ -2,10 +2,17 @@
   margin: 0;
   padding: 0;
 }
+
 .nav-links {
-  display: flex;
-  border: 2px solid white;
   padding: 30px;
+  list-style: none;
+  display: flex;
+  gap: 1.25vw;
+}
+.user-menu span{
+  font-size: 8vh;
+  cursor: pointer;
+  display: none;
 }
 .user {
   display: inline-block;
@@ -21,10 +28,14 @@
   font-size: 4vh;
   font-weight: 600;
 }
-.nav-links li:hover {
+.nav-links li a:hover {
   color: rgb(71, 194, 153);
   cursor: pointer;
   border-bottom: 2px solid rgb(71, 194, 153);
+}
+.nav-links li a{
+  text-decoration: none;
+  color: black;
 }
 .left {
   flex-basis: 40%;
@@ -43,22 +54,14 @@
   margin: 3vh auto;
 }
 nav {
-  height: 5vh;
+  height: 8vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.25vw;
+  position: relative;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .user {
   background-color: rgb(161, 244, 216);
   padding: 8px 5px;
@@ -78,16 +81,17 @@ nav {
   height: 65vh;
 }
 .right img {
-  height: 100%;
+  height: 99%;
+  width: 100%;;
 }
 .achievement {
   width: 80%;
-  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: rgb(71, 194, 153);
   margin: 2vh auto;
+  flex-wrap: wrap;
 }
 .achievement h1 {
   flex-basis: 30%;
@@ -98,4 +102,57 @@ nav {
 }
 .big-text {
   font-size: 4vh;
+}
+@media screen and (max-width: 680px) {
+  .nav-links{
+    /* display: none; */
+    color: black;
+    font-size: 5vh;
+    height: 100vh;
+    width: 97vw;
+    position: absolute;
+    top: -55vh;
+    background: rgba(255, 255, 255, 0.808);
+    display: block;
+    height: 45vh;
+    text-align: center;
+    transition: .4s ease-in-out;
+  }
+  .show{
+    top: 5vh;
+  }
+  .user-menu{
+    /* width: 33vw; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .user-menu span{
+    font-size: 8vh;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 1vh auto;
+  }
+  .left, .right{
+    flex-basis: 80%;
+  }
+  .achievement {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(71, 194, 153);
+    flex-wrap: wrap;
+  }
+  .achievement h1 {
+    flex-basis: 100%;
+    font-weight: 900;
+  }
+  .achievement div {
+    width: 33%;
+  }
 }
