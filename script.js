@@ -1,29 +1,12 @@
+
+
 const servises = [
-    {
-        name: "Dry Cleaning",
-        price: 200,
-    },
-    {
-        name: "Wash & Fold",
-        price: 100,
-    },
-    {
-        name: "Ironing",
-        price: 30,
-    },
-    {
-        name: "Stain Removal",
-        price: 500,
-    },
-    {
-        name: "Leather & Suede Cleaning",
-        price: 999,
-    },
-    {
-        name: "Wedding Dress Cleaning",
-        price: 2800,
-    },
-    
+    {name: "Dry Cleaning",price: 200},
+    {name: "Wash & Fold",price: 100,},
+    {name: "Ironing",price: 30,},
+    {name: "Stain Removal",price: 500,},
+    {name: "Leather & Suede Cleaning",price: 999,},
+    {name: "Wedding Dress Cleaning",price: 2800,},
 ]
 let cart = [];
 const servisesDiv = document.querySelector('.servises');
@@ -115,6 +98,13 @@ buyBtn.addEventListener('click', () => {
         statusDiv.style.BackgroundColor = "rgba(86 98 249 0.6)";
         statusDiv.style.color = "red";
     }else{
+        let orderDet = ""
+        cart.forEach((elem) => 
+           orderDet += `<p>${elem.name}   ${elem.price}</p>`
+        )
+
+        console.log(orderDet);
+        sandMail(fullname.value, email.value, phone.value, orderDet)
         statusDiv.innerText = "Thank you For Booking the Service We will get back to you soon!";
         statusDiv.style.color = "rgb(86 98 249)";
         statusDiv.style.BackgroundColor = "rgba(86 98 249 0.6)";
@@ -137,3 +127,26 @@ document.getElementById('menu-btn').addEventListener('click', ()=>{
     nav_menu.classList.toggle('show')
     
 })  
+
+function sandMail(fullname, mail, phoneNum, orderDet){
+    (function(){
+      emailjs.init("TRc4wW4uG_3Nkg3se");
+    })();
+    var params = {
+        to_name:fullname,
+        email:mail,
+        phone:phoneNum,
+        orderDetails:orderDet,
+    }
+    
+    var servicID = "service_bnuubfr";
+    var templateID = "template_c6wa9ib"; 
+
+    window.emailjs.send(servicID, templateID, params)
+    .then(res => {
+        alert("email sand sucseccfully" , res)
+    })
+    .catch((e) =>{
+        alert(e)
+    })
+}
