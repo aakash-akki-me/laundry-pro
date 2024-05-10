@@ -110,8 +110,7 @@ nav {
     /* display: none; */
     color: black;
     font-size: 5vh;
-    height: 100vh;
-    width: 97vw;
+    width: 100%;
     position: absolute;
     top: -55vh;
     background: rgba(255, 255, 255, 0.808);
