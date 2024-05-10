@@ -91,7 +91,7 @@ function addToCart() {
         itemsForCart += `<div id="${index}" class="tabel-title">
         <span class="tb-dt">${index + 1}</span>
         <span class="tb-dt"> ${elem.name}</span>
-        <span class="tb-dt right"> ${elem.price}.00 $</span>
+        <span class="tb-dt"> ${elem.price}.00 $</span>
       </div>`
     })
     cartItems.innerHTML = itemsForCart;
