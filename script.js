@@ -100,7 +100,7 @@ buyBtn.addEventListener('click', () => {
     }else{
         let orderDet = ""
         cart.forEach((elem) => 
-           orderDet += `<p>${elem.name}   ${elem.price}</p>`
+           orderDet += `${elem.name}   ${elem.price}/n`
         )
 
         console.log(orderDet);
